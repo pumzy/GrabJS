@@ -75,6 +75,10 @@ class DOMNodeCollection{
     this.elements = elements;
   }
 
+  each(callback){
+    this.elements.forEach(callback)
+  }
+
   html(str){
     if(!str){
       return this.elements[0].innerHTML;
@@ -94,8 +98,19 @@ class DOMNodeCollection{
   }
 
   append(arg){
-    for (var i = 0; i < this.elements.length; i++) {
-      this.elements[i].innerHTML = this.elements[i].innerHTML + arg;
+    if (arg instanceof HTMLElement){
+      arg = $g(arg)
+    }
+
+    if (typeof arg === "string"){
+      for (var i = 0; i < this.elements.length; i++) {
+        this.elements[i].innerHTML = this.elements[i].innerHTML + arg;
+      }
+      return new DOMNodeCollection(this.elements)
+    } else if (arg instanceof DOMNodeCollection){
+      this.each((element) => {
+        arg.each(argument => element.appendChild(argument.cloneNode(true)))
+      })
     }
     return new DOMNodeCollection(this.elements)
   }
@@ -213,7 +228,7 @@ window.$g = function(){
 
   document.addEventListener("DOMContentLoaded", () => {
       docready = true;
-      
+
       for (var i = 0; i < length; i++) {
         functionqueue.shift().call(this);
       }
@@ -236,6 +251,7 @@ $g.extend = function(...args){
 };
 
 $g.ajax = function(options){
+  return new Promise((resolve, reject) => {
 
   const xhr = new XMLHttpRequest();
 
@@ -251,13 +267,18 @@ $g.ajax = function(options){
 
   xhr.open( options.method, options.url);
   xhr.onload = () => {
-    if(xhr.status === 200) options.success(xhr.response);
-    else options.error(xhr.response);
+    if(xhr.status === 200){
+       options.success(xhr.response);
+       resolve(xhr.response);
+    } else {
+      options.error(xhr.response);
+      reject(xhr.response);
+    }
   };
 
   xhr.send(JSON.stringify(options.data));
-};
-
+});
+}
 
 /***/ })
 /******/ ]);

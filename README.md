@@ -25,11 +25,11 @@ If you have installed GrabJS successfully, the following text will appear when y
 
 ## GrabJS API
 
-GrabJS methods return ```DOMNodeCollection```s. This is a custom class, which has a number of methods defined on it (which will be discussed briefly), and contain a number of HTML elements based on the parameters provided to the $g wrapper(again, more in a second).
+GrabJS functions return ```DOMNodeCollection```s. This is a custom class, which has a number of functions defined on it (which will be discussed briefly), and contain a number of HTML elements based on the parameters provided to the $g wrapper(again, more in a second).
 
 ### $g(arg)
 
-The $g wrapper is, at its core, used to return an instance of a DOMNodeCollection, upon which GrabJS methods can be executed. If the arguments passed in to this wrapper is a string, $g will return a new ```DOMNodeCollection``` containing all of the HTML elements on the page that have the same class/id/type as the content specified in the string. If the argument is a function, or there are multiple functions, these will be stored in a ```functionqueue```, and then executed in order once the document has fully loaded. If the page is already loaded, these will be executed immediately.
+The $g wrapper is, at its core, used to return an instance of a DOMNodeCollection, upon which GrabJS functions can be executed. If the arguments passed in to this wrapper is a string, $g will return a new ```DOMNodeCollection``` containing all of the HTML elements on the page that have the same class/id/type as the content specified in the string. If the argument is a function, or there are multiple functions, these will be stored in a ```functionqueue```, and then executed in order once the document has fully loaded. If the page is already loaded, these will be executed immediately.
 
 The code used to attain this functionality is as follows.
 
@@ -43,21 +43,77 @@ for (var i = 0; i < args.length; i++) {
 }
 ```
 
-### Selection with $g
+## Selection with $g
 
 The most common use of the $g wrapper is to select elements from the DOM. Selection in GrabJS works in the following manner:
 
-#### Selecting types of HTML elements
+### Selecting types of HTML elements
 
 In order to select all elements of a certain type, simply pass the element as a string into the $g wrapper.
 For example, to select all li's, we can simply type ```$g("li")``` into the console.
 
-#### Selecting elements with a particular className
+### Selecting elements with a particular className
 
 In order to select all elements that belong to a certain class, prefix your search criteria with a full-stop.
 For example, one can type in ```$g(".hello")``` to select all HTML elements with that belong to the class "hello"
 
-#### Selecting elements with a particular ID
+### Selecting elements with a particular ID
 
 In order to select all elements that have a certain ID, prefix your search criteria with a hash.
 For example, one can type in ```$g("#exampleID")``` to select all HTML elements with that have the ID "exampleID"
+
+## $g functions
+
+There are a number of functions that can be called on any instance of the DOMNodeCollection class, which will then serve to modify the collection of HTML elements gathered by the initial selection, traverse elements, or perform certain functions. These functions are as follows:
+
+### DOM Manipulation
+
+These functions can be used to modify or view DOM elements
+
+#### ```html(str)```
+If provided no argument, this function returns the ```innerHTML``` of the first element in the DOMNodeCollection that it is called on. If an argument is provided, this function will change the ```innerHTML``` of all the elements in the DOMNodeCollection to the string provided.
+
+#### ```empty```
+
+This will clear out the ```innerHTML``` of all the elements in the DOMNodeCollection
+
+#### ```append(element)```
+
+This function can take a HTMLElement, a string, or a DOMNodeCollection, and will append it to all of the elements in the DOMNodeCollection it is called on.
+
+
+#### ```attr(attributeName, value)```
+
+
+
+
+#### ```addClass(newClass)```
+
+
+#### ```removeClass(className)```
+
+### DOM Traversal
+
+These functions can be used to navigate DOM elements.
+
+#### ```parent```
+
+
+#### ```children```
+
+
+#### ```find(arg)```
+
+
+### Event Listeners
+
+#### ```on```
+
+
+#### ```off```
+
+
+### g.extend
+
+
+### $g.ajax
