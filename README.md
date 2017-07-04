@@ -77,20 +77,28 @@ If provided no argument, this function returns the ```innerHTML``` of the first 
 
 This will clear out the ```innerHTML``` of all the elements in the DOMNodeCollection
 
+#### ```each(callback)```
+
+This function will apply the supplied callback to all the elements in the DOMNodeCollection
+
 #### ```append(element)```
 
-This function can take a HTMLElement, a string, or a DOMNodeCollection, and will append it to all of the elements in the DOMNodeCollection it is called on.
+This function can take a HTMLElement, a string, or a DOMNodeCollection. The element will be appended on to  all of the elements in the DOMNodeCollection it is called on.
 
 
 #### ```attr(attributeName, value)```
 
-
+This function can work provided either only an ```attributeName```, or both an ```attributeName``` and a ```value```. If only provided with one argument, this function will operate only on the first element of the DOMNodeCollection, and return the value for the corresponding attribute. If provided with a ```value```, this function will iterate through the elements of the DOMNodeCollection and set an attribute, with the attribute name being the ```attributeName``` provided, and the ```value``` being the value provided.
 
 
 #### ```addClass(newClass)```
 
+This will add the ```newClass``` to all the elements in the DOMNodeCollection
+
 
 #### ```removeClass(className)```
+
+This will remove the class with the name of ```className``` from all the elements in the DOMNodeCollection
 
 ### DOM Traversal
 
@@ -98,16 +106,27 @@ These functions can be used to navigate DOM elements.
 
 #### ```parent```
 
+This function will return a DOMNodeCollection containing the parent of all the elements in the initial DOMNodeCollection.
 
 #### ```children```
 
+This function will return a DOMNodeCollection containing the children of all the elements in the initial DOMNodeCollection.
 
 #### ```find(arg)```
 
+This function will look through the children of all of the elements in the initial DOMNodeCollection for HTMLElements that match the criteria in the ```arg``` supplied.
+
+eg: In order to find all elements with the className "h" that are nested under all unordered lists, we can input the following into the console:
+
+```javascript
+  $g("ul").find(".h")
+```
 
 ### Event Listeners
 
+
 #### ```on```
+
 
 
 #### ```off```
