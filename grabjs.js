@@ -72,7 +72,6 @@
 
 class DOMNodeCollection{
   constructor(elements){
-    debugger
     this.elements = elements;
   }
 
