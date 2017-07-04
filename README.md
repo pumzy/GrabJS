@@ -10,15 +10,15 @@ At the core of this library is user-friendliness, with GrabJS's extremely intuit
 
 ## Getting started
 
-In order to use GrabJS, download this library into your project and add --grabjs.js-- in a script tag on the head of your root HTML page. An example of this is below:
+In order to use GrabJS, download this library into your project and add ```grabjs.js``` in a script tag on the head of your root HTML page. An example of this is below:
 
---
+```html
 <head>
   <meta charset="utf-8">
   <script src="./grabjs.js" charset="utf-8"></script>
 </head>
---
+```
 
 If you have installed GrabJS successfully, the following text will appear when you open up the console:
 
--- Thank you for using GrabJS --
+``` Thank you for using GrabJS ```
