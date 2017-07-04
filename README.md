@@ -199,6 +199,6 @@ The code for this AJAX function is as follows:
 
 ## Demo
 
-In order to show off some of the functionality of the GrabJS library, I have made a simple Snake game using GrabJS incorporating GrabJS functions. This is a [link to the demo repo](https://github.com/pumzy/Snake-GrabJS-Demo), and this is a [link to the live demo](https://pumzy.github.io/Snake-GrabJS-Demo/)
+In order to show off some of the functionality of the GrabJS library, I have made a simple Snake game using GrabJS incorporating GrabJS functions. This is a [link to the demo repo](https://github.com/pumzy/Snake-GrabJS-Demo), and this is a [link to the live demo](https://pumzy.github.io/Snake-GrabJS-Demo/).
 
 If you would like to test the library more organically, open up test.html in this repo (on your browser), and play around with some GrabJS commands!
