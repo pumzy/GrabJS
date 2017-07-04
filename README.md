@@ -21,6 +21,8 @@ In order to use GrabJS, download this library into your project and add ```grabj
 
 If you have installed GrabJS successfully, the following text will appear when you open up the console:
 
-``` Thank you for using GrabJS ```
+```Thank you for using GrabJS```
 
 ## GrabJS API
+
+GrabJS methods return ```DOMNodeCollection```s. This is a custom class, which has a number of methods defined on it (which will be discussed briefly), and contain a number of HTML elements based on the parameters provided to the $g method(again, more in a second)
