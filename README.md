@@ -134,7 +134,9 @@ This function adds an event listener to each element in the DOMNodeCollection ba
 
 For each of the elements in the DOMNodeCollection, this function will remove the specified event listener.
 
-### ```g.extend```
+## Non DOMNodeCollection methods
+
+### ```$g.extend```
 
 A simple function that merges JavaScript objects
 
@@ -149,4 +151,39 @@ This function sends an AJAX request, and returns a ```Promise```. This function 
 |  url | ""    |
 |  dataType | "JSON"     |
 | success -- This is the success callback | (s) => console.log("No success Callback")      |
-| error -- This is the error callback| console.log("No Error Callback")      |
+| error -- This is the error callback| (e) => console.log("No Error Callback")      |
+
+The code for this AJAX function is as follows:
+
+```javascript
+ $g.ajax = function(options){
+  return new Promise((resolve, reject) => {
+
+  const xhr = new XMLHttpRequest();
+
+  let defaults = {
+    contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
+    method: "GET",
+    url: ``,
+    dataType: "JSON",
+    success: (s) => console.log("No success Callback"),
+    error: (e) => console.log("No Error Callback"),
+  };
+
+  options = $g.extend(defaults, options);
+
+  xhr.open( options.method, options.url);
+  xhr.onload = () => {
+    if(xhr.status === 200){
+       options.success(xhr.response);
+       resolve(xhr.response);
+    } else {
+      options.error(xhr.response);
+      reject(xhr.response);
+    }
+  };
+
+  xhr.send(JSON.stringify(options.data));
+});
+}
+```
