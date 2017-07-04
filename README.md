@@ -134,7 +134,12 @@ This function adds an event listener to each element in the DOMNodeCollection ba
 
 For each of the elements in the DOMNodeCollection, this function will remove the specified event listener.
 
+
 ## Non DOMNodeCollection methods
+
+### ```$g.ready(callback)```
+
+This function fires the callback when the DOM content has been loaded
 
 ### ```$g.extend```
 
