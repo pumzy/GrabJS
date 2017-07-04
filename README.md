@@ -125,14 +125,28 @@ eg: In order to find all elements with the className "h" that are nested under a
 ### Event Listeners
 
 
-#### ```on```
+#### ```on(action, callback)```
+
+This function adds an event listener to each element in the DOMNodeCollection based on the specified ```action``` transpiring, at which point the ```callback``` will be executed.
 
 
+#### ```off(action, callback)```
 
-#### ```off```
+For each of the elements in the DOMNodeCollection, this function will remove the specified event listener.
 
+### ```g.extend```
 
-### g.extend
+A simple function that merges JavaScript objects
 
+### ```$g.ajax(options)```
 
-### $g.ajax
+This function sends an AJAX request, and returns a ```Promise```. This function accepts a hash, with the following keys (and defaults):
+
+| Keys        | Defaults           |
+| ------------- |:-------------:|
+| contentType    | 'application/x-www-form-urlencoded; charset=UTF-8' |
+| method     | "GET"     |   
+|  url | ""    |
+|  dataType | "JSON"     |
+| success -- This is the success callback | (s) => console.log("No success Callback")      |
+| error -- This is the error callback| console.log("No Error Callback")      |
