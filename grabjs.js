@@ -254,6 +254,10 @@ $g.ready = (callback) => {
   document.addEventListener("DOMContentLoaded", callback)
 }
 
+$g.keydown = (callback) => {
+  document.addEventListener('keydown', callback)
+}
+
 $g.ajax = function(options){
   return new Promise((resolve, reject) => {
 

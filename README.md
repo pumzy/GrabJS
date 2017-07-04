@@ -141,6 +141,10 @@ For each of the elements in the DOMNodeCollection, this function will remove the
 
 This function fires the callback when the DOM content has been loaded
 
+### ```$g.keydown(callback)```
+
+This function fires the callback when a key is pressed.
+
 ### ```$g.extend```
 
 A simple function that merges JavaScript objects
@@ -192,3 +196,9 @@ The code for this AJAX function is as follows:
 });
 }
 ```
+
+## Demo
+
+In order to show off some of the functionality of the GrabJS library, I have made a simple Snake game using GrabJS incorporating GrabJS functions. This is a [link](https://github.com/pumzy/Snake-GrabJS-Demo) to the demo repo.
+
+If you would like to test the library more organically, open up test.html in this repo (on your browser), and play around with some GrabJS commands!
