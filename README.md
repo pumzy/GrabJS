@@ -61,15 +61,3 @@ For example, one can type in ```$g(".hello")``` to select all HTML elements with
 
 In order to select all elements that have a certain ID, prefix your search criteria with a hash.
 For example, one can type in ```$g("#exampleID")``` to select all HTML elements with that have the ID "exampleID"
-
-
-
-
-
-
-
-
-
-
-
-The most common use of the $g wrapper is to select an element, or a number of elements.
