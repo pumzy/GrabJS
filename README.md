@@ -22,3 +22,5 @@ In order to use GrabJS, download this library into your project and add ```grabj
 If you have installed GrabJS successfully, the following text will appear when you open up the console:
 
 ``` Thank you for using GrabJS ```
+
+## GrabJS API
